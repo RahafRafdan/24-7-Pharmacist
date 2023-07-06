@@ -5,8 +5,30 @@ from PIL import Image
 
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
-st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
+st.set_page_config(page_title="Pharmacist 24/7", page_icon=":robot:", layout="wide")
 
+
+def make_chain(openai_api_key):
+    model = ChatOpenAI(
+        model_name="gpt-3.5-turbo",
+        temperature="0",
+        openai_api_key=openai_api_key,
+        # verbose=True
+    )
+    embedding = OpenAIEmbeddings(openai_api_key=openai_api_key)
+
+    vector_store = Chroma(
+        collection_name="answer",
+        embedding_function=embedding,
+        persist_directory="ldata/chroma",
+    )
+
+    return ConversationalRetrievalChain.from_llm(
+        model,
+        retriever=vector_store.as_retriever(),
+        return_source_documents=True,
+        # verbose=True,
+    )
 
 def load_lottieurl(url):
     r = requests.get(url)
@@ -54,7 +76,6 @@ with st.container():
         Together, let's embark on this journey towards a safer and more informed diabetes management experience for all.
           """
         )
-        st.write("[chatbot link >](  )")
     with right_column:
         st_lottie(lottie_coding, height=300, key="coding")
 
@@ -62,21 +83,52 @@ with st.container():
 # ---- CONTACT ----
 with st.container():
     st.write("---")
-    st.header("Get In Touch With Your Personal Phamacist for more details!")
+    st.header("Get In Touch With Your Personal Phamacist")
     st.write("##")
 
-    # Documention: https://formsubmit.co/ !!! CHANGE EMAIL ADDRESS !!!
-    contact_form = """
-    <form action="https://formsubmit.co/RahafRafdan@gmail.com" method="POST">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Your email" required>
-        <textarea name="message" placeholder="Your message here" required></textarea>
-        <button type="submit">Send</button>
-    </form>
-    """
-    left_column, right_column = st.columns(2)
-    with left_column:
-        st.markdown(contact_form, unsafe_allow_html=True)
-    with right_column:
-        st.empty()
+def get_api_key():
+    input_text = st.text_input(label="OpenAI API Key ",  placeholder="Ex: sk-2twmA8tfCb8un4...", key="openai_api_key_input")
+    return input_text
+
+openai_api_key = get_api_key()
+
+
+def get_text():
+    input_text = st.text_area(label="question Input", label_visibility='collapsed', placeholder="Your question ...", key="question_input")
+    return input_text
+
+question_input = get_text()
+
+if len(question_input.split(" ")) > 700:
+    st.write("Please enter a shorter question. The maximum length is 700 words.")
+    st.stop()
+
+def update_text_with_example():
+    print ("in updated")
+    st.session_state.question_input = "can i drink milk with metformin?"
+
+st.button("*See An Example*", type='secondary', help="Click to see an example of a question.", on_click=update_text_with_example)
+
+st.markdown("### 🤖:")
+
+if question_input:
+    if not openai_api_key:
+        st.warning('Please insert OpenAI API Key. Instructions [here](https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key)', icon="⚠️")
+        st.stop()
+
+    llm = make_chain(openai_api_key=openai_api_key)
+    chat_history = []
+
+
+    response = llm({"question": question_input, "chat_history": chat_history})
+    
+# Retrieve answer
+    answer = response["answer"]
+    source = response["source_documents"]
+    chat_history.append(HumanMessage(content=question_input))
+    chat_history.append(AIMessage(content=answer))
+    st.write(answer)
+
+
+    st.markdown("### source:")
+    st.write(source)
