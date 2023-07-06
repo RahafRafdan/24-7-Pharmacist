@@ -1,0 +1,9 @@
+langchain ==0.0.162
+python-dotenv 
+pypdf4 
+pdfplumber 
+chromadb 
+openai 
+tiktoken 
+streamlit
+streamlit-lottie
