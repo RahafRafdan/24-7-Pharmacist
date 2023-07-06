@@ -2,10 +2,18 @@ import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
 from PIL import Image
+import streamlit as st
+from langchain.llms import OpenAI
+from langchain.vectorstores.chroma import Chroma
+from langchain.chat_models import ChatOpenAI
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.chains import ConversationalRetrievalChain
+from langchain.schema import HumanMessage, AIMessage
 
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="Pharmacist 24/7", page_icon=":robot:", layout="wide")
+
 
 
 def make_chain(openai_api_key):
