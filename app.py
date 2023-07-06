@@ -5,7 +5,7 @@ from PIL import Image
 
 
 # Find more emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
-st.set_page_config(page_title="My Webpage", page_icon=":woman_health_worker:", layout="wide")
+st.set_page_config(page_title="My Webpage", page_icon=":tada:", layout="wide")
 
 
 def load_lottieurl(url):
@@ -35,7 +35,7 @@ with st.container():
     st.write(
         "I am a Personal Pharmacist 24/7 that provides a chatbot service to answer any questions related to medicines."
     )
-   #---- st.write("chatbot link")---- 
+ 
 
 # ---- WHAT I DO ----
 with st.container():
@@ -54,7 +54,6 @@ with st.container():
         Together, let's embark on this journey towards a safer and more informed diabetes management experience for all.
           """
         )
-        #---st.write("[YouTube Channel >](# ----https://youtube.com/c/CodingIsFun)")
         st.write("[chatbot link >](  )")
     with right_column:
         st_lottie(lottie_coding, height=300, key="coding")
