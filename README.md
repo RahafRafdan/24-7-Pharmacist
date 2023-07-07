@@ -14,6 +14,8 @@
 
 ## Important facts before running the code
 
+``` This project is developed using python 3.8.```
+
 This bot has been trained on [the Clinical Questions Collection provided by the National Library of Medicine](https://datadiscovery.nlm.nih.gov/Literature/Clinical-Questions-Collection/i3a4-n4ma?_gl=1*1i1z9ut*_ga*MjAyOTIxODE4NS4xNjg4NTA5ODgz*_ga_P1FPTH9PL4*MTY4ODUwOTg4My4xLjAuMTY4ODUwOTg4My4wLjAuMA..*_ga_7147EPK006*MTY4ODUwOTg4My4xLjAuMTY4ODUwOTg4My4wLjAuMA), as well as selected articles about Metformin which is  used for treating type 2 diabetes. Therefore, for the best answers, please ask questions related to the of Metformin medicine.
 
 <a name="about"/>
