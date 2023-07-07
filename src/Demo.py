@@ -37,6 +37,7 @@ if __name__ == "__main__":
     while True:
         print()
         question = input("question: ")
+ 
 
         # Generate answer
         response = chain({"question": question, "chat_history": chat_history})
@@ -44,6 +45,7 @@ if __name__ == "__main__":
         # Retrieve answer
         answer = response["answer"]
         source = response["source_documents"]
+        chat_history.append(HumanMessage(content='You are a helpful AI bot that talks like a professional pharamcist'))
         chat_history.append(HumanMessage(content=question))
         chat_history.append(AIMessage(content=answer))
 

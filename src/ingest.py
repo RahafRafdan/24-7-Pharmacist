@@ -114,7 +114,7 @@ if __name__ == "__main__":
     load_dotenv()
 
     # Step 1: Parse PDF
-    file_path = r"src\data\pOy9lhw00TwkAkfBmPzo1zZpa00pn9ZHlnR2duwF.pdf" # add file to train 
+    file_path = r"traning data\collection-ib-1892-questions.pdf" # add file to train 
     raw_pages, metadata = parse_pdf(file_path)
 
     # Step 2: Create text chunks
