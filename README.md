@@ -58,7 +58,7 @@ then download the required libraries
  pip install -r requirements.txt
 ```
 
-If you run into a problem in this step related to hnswlib you will need to download https://visualstudio.microsoft.com/visual-cpp-build-tools/
+If you run into a problem in this step related to hnswlib you will need to download [visual studio](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
 
 then navigate to "Individual components", and find these two
 
