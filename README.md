@@ -14,11 +14,13 @@
 
 ## Important facts before running the code
 
+This bot has been trained on [the Clinical Questions Collection provided by the National Library of Medicine](https://datadiscovery.nlm.nih.gov/Literature/Clinical-Questions-Collection/i3a4-n4ma?_gl=1*1i1z9ut*_ga*MjAyOTIxODE4NS4xNjg4NTA5ODgz*_ga_P1FPTH9PL4*MTY4ODUwOTg4My4xLjAuMTY4ODUwOTg4My4wLjAuMA..*_ga_7147EPK006*MTY4ODUwOTg4My4xLjAuMTY4ODUwOTg4My4wLjAuMA), as well as selected articles about Metformin which is  used for treating type 2 diabetes. Therefore, for the best answers, please ask questions related to the of Metformin medicine.
+
 <a name="about"/>
 
 ## About
 
-
+This demo offers a virtual experience that simulates a pharmacist's role in assisting patients with inquiries about potential food or medication conflicts for their medications. With this innovative platform, patients can receive personalized recommendations and advice from a virtual pharmacist, which can help them make informed decisions about their health. This can be especially useful for patients who have a complex medication regimen or who may have a history of adverse drug reactions. By using this technology, patients can feel more empowered and confident in managing their health and can have peace of mind knowing that they have a trusted source of information and support at their fingertips.
 
 <a name="how"/>
 
