@@ -76,12 +76,11 @@ with st.container():
         st.write("##")
         st.write(
             """
-          Our project focuses on the development of an advanced virtual assistant bot specifically designed to assist diabetes patients with inquiries about potential conflicts between their medications. 
-        Diabetes medication conflicts can occur when certain medications, taken together, produce harmful or undesirable effects.
-        We aim to enhance medication safety and improve patient education for diabetes management. 
-        Our website serves as the platform for this bot, offering a user-friendly interface for easy access to reliable and up-to-date information on diabetes medications. 
-        Through our project, we strive to empower individuals with the knowledge necessary to make informed decisions about their diabetes healthcare.
-        Together, let's embark on this journey towards a safer and more informed diabetes management experience for all.
+          I am an advanced virtual assistant bot specifically designed to assist patients with inquiries about potential conflicts between their medications. Medication conflicts can occur when certain medications are taken together, or when certain foods are consumed with a specific medication, and may produce harmful or undesirable effects. Our goal is to enhance medication safety and improve patient education.
+
+Our website provides a user-friendly interface for easy access to reliable and up-to-date information on medications. Through our project, we strive to empower individuals with the knowledge necessary to make informed decisions about their healthcare.
+
+Join us on this journey towards a safer and more informed medication experience for all..
           """
         )
     with right_column:
